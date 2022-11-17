@@ -1,0 +1,2999 @@
+﻿focus_tree = {
+	id = generic_two
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				tag = alg
+				tag = egy
+				tag = swe
+				tag = phi
+				tag = arg
+			}
+		}
+	}
+	
+	default = yes
+
+	continuous_focus_position = { x = 50 y = 1000}
+
+	focus = {
+		id = TWO_army_effort
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 0
+		cost = 10
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_equipment_effort
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = TWO_army_effort }
+		x = -1
+		y = 1
+		relative_position_id = TWO_army_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_motorization_effort
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = TWO_army_effort }
+		bypass = { has_tech = motorised_infantry }
+		x = 1
+		y = 1
+		relative_position_id = TWO_army_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 3.0
+				technology = motorised_infantry
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = TWO_army_effort }
+		x = 0
+		y = 2
+		relative_position_id = TWO_army_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_equipment_effort_2
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = TWO_equipment_effort }
+		x = 0
+		y = 2
+		relative_position_id = TWO_equipment_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_mechanization_effort
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = TWO_motorization_effort }
+		x = 0
+		y = 2
+		relative_position_id = TWO_motorization_effort
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_doctrine_effort_2
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = TWO_doctrine_effort }
+		x = 0
+		y = 2
+		relative_position_id = TWO_doctrine_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_equipment_effort_3
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = TWO_equipment_effort_2 }
+		x = 0
+		y = 2
+		relative_position_id = TWO_equipment_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_armor_effort
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = TWO_mechanization_effort }
+		x = 0
+		y = 2
+		relative_position_id = TWO_mechanization_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_special_forces
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = TWO_equipment_effort_3 }
+		prerequisite = { focus = TWO_doctrine_effort_2 }
+		prerequisite = { focus = TWO_armor_effort }
+		x = 1
+		y = 1
+		relative_position_id = TWO_equipment_effort_3
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		x = 5
+		y = 0
+		cost = 10
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = TWO_aviation_effort }
+		mutually_exclusive = { focus = TWO_bomber_focus }
+		x = -1
+		y = 1
+		relative_position_id = TWO_aviation_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = TWO_aviation_effort }
+		mutually_exclusive = { focus = TWO_fighter_focus }
+		x = 1
+		y = 1
+		relative_position_id = TWO_aviation_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				category = cat_strategic_bomber
+				category = tactical_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_aviation_effort_2
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = TWO_bomber_focus focus = TWO_fighter_focus }
+		x = -1
+		y = 1
+		relative_position_id = TWO_bomber_focus
+		cost = 10
+
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_2_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name =  air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							NOT = { is_controlled_by = ROOT }
+							NOT = {
+								free_building_slots = {
+									building = air_base
+									size > 1
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}				
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name =  air_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_CAS_effort
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = TWO_aviation_effort_2 }
+		prerequisite = { focus = TWO_motorization_effort }
+		x = -1
+		y = 1
+		relative_position_id = TWO_aviation_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_rocket_effort
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = TWO_aviation_effort_2 }
+		prerequisite = { focus = TWO_infrastructure_effort }
+		x = 0
+		y = 2
+		relative_position_id = TWO_aviation_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 2
+				uses = 2
+				category = rocketry
+				category = jet_technology
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_NAV_effort
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = TWO_aviation_effort_2 }
+		prerequisite = { focus = TWO_flexible_navy }
+		x = 1
+		y = 1
+		relative_position_id = TWO_aviation_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_naval_effort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 9
+		y = 0
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = TWO_flexible_navy
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = TWO_naval_effort }
+		mutually_exclusive = { focus = TWO_large_navy }
+		x = -1
+		y = 1
+		relative_position_id = TWO_naval_effort
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = sub_op_bonus
+				cost_reduction = 0.5
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_large_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = TWO_naval_effort }
+		mutually_exclusive = { focus = TWO_flexible_navy }
+		x = 1
+		y = 1
+		relative_position_id = TWO_naval_effort
+		cost = 10
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = fleet_in_being_bonus
+				cost_reduction = 0.25
+				uses = 2
+				category = fleet_in_being_tree
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_submarine_effort
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = TWO_flexible_navy focus = TWO_large_navy }
+		x = 0
+		y = 1
+		relative_position_id = TWO_flexible_navy
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_cruiser_effort
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = TWO_large_navy focus = TWO_flexible_navy }
+		x = 0
+		y = 1
+		relative_position_id = TWO_large_navy
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_destroyer_effort
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = TWO_submarine_effort }
+		x = 0
+		y = 1
+		relative_position_id = TWO_submarine_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_capital_ships_effort
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = TWO_cruiser_effort }
+		x = 0
+		y = 1
+		relative_position_id = TWO_cruiser_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_industrial_effort
+		icon = GFX_goal_generic_production
+		x = 13
+		y = 0
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+				OR = { 
+					# we dont want chinese minors to go crazy on slots early since they get eaten
+					tag = GXC 
+					tag = YUN
+					tag = SHX
+					tag = XSM
+					tag = BEL
+					tag = LUX
+					tag = HOL
+					tag = DEN
+
+					# we also dont want tiny nations to go crazy with slots right away
+					num_of_controlled_states < 2
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_construction_effort
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = TWO_industrial_effort }
+		x = -1
+		y = 1
+		relative_position_id = TWO_industrial_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = yes
+
+
+		
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_production_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = TWO_industrial_effort }
+		x = 1
+		y = 1
+		relative_position_id = TWO_industrial_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2			
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_construction_effort_2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = TWO_construction_effort }
+		x = 0
+		y = 1
+		relative_position_id = TWO_construction_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_production_effort_2
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = TWO_production_effort }
+		x = 0
+		y = 1
+		relative_position_id = TWO_production_effort
+		cost = 10
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_infrastructure_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = TWO_construction_effort_2 }
+		x = 0
+		y = 1
+		relative_position_id = TWO_construction_effort_2
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_production_effort_3
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = TWO_production_effort_2 }
+		x = 0
+		y = 1
+		relative_position_id = TWO_production_effort_2
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_infrastructure_effort_2
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = TWO_infrastructure_effort }
+		x = 0
+		y = 1
+		relative_position_id = TWO_infrastructure_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_construction_effort_3
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = TWO_infrastructure_effort }
+		x = 2
+		y = 1
+		relative_position_id = TWO_infrastructure_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 2
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_nuclear_effort
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = TWO_infrastructure_effort_2 }
+		x = -2
+		y = 1
+		relative_position_id = TWO_infrastructure_effort_2
+		cost = 10
+		
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_extra_tech_slot
+		icon = GFX_focus_research
+		prerequisite = { focus = TWO_infrastructure_effort_2 }
+		x = 0
+		y = 1
+		relative_position_id = TWO_infrastructure_effort_2
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = TWO_extra_tech_slot_2
+		icon = GFX_focus_research
+		prerequisite = { focus = TWO_extra_tech_slot }
+		available = {
+			num_of_factories > 50
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		x = 0
+		y = 1
+		relative_position_id = TWO_extra_tech_slot
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}	
+
+	focus = {
+		id = TWO_secret_weapons
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = TWO_infrastructure_effort_2 }
+		x = 2
+		y = 1
+		relative_position_id = TWO_infrastructure_effort_2
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 4
+				category = electronics
+				category = nuclear
+				category = rocketry
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_political_effort
+		icon = GFX_goal_generic_demand_territory
+		x = 29
+		y = 0
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+
+	focus = {
+		id = TWO_invite_communist_ministers
+		icon = GFX_goal_support_communism
+		x = -9
+		y = 1
+		offset = {
+			x = 0
+			y = 0
+		}
+		prerequisite = { focus = TWO_political_effort }
+		mutually_exclusive = { focus = TWO_rehabilitate_the_kadro_movement focus = TWO_a_king_for_our_people focus = TWO_strengthen_civilian_government }
+		relative_position_id = TWO_political_effort
+		allow_branch = { has_dlc = "La Resistance" }
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+	
+		bypass = {
+			has_government = communism
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.05 }
+			set_temp_variable = { communism_temp = party_popularity@communism }
+			multiply_temp_variable = { communism_temp = 0.25 }
+			add_stability = communism_temp
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = TWO_johannes_kabin
+			add_ideas = {
+				BALTIC_restore_workers_republic_idea
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_soviet_military_staff
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = TWO_invite_communist_ministers }
+		x = 0
+		y = 1
+		relative_position_id = TWO_invite_communist_ministers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+
+	focus = {
+		id = TWO_soviet_equipment
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = TWO_invite_communist_ministers }
+		x = -2
+		y = 1
+		relative_position_id = TWO_invite_communist_ministers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			random_other_country = {
+				limit = { 
+					is_major = yes
+					capital_scope = { is_on_continent = europe }
+					exists = yes
+					has_capitulated = no
+					has_government = communism
+					NOT = { has_war_with = ROOT }
+				}
+				baltic_give_allied_equipment = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_red_army
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = TWO_invite_communist_ministers }
+		x = 2
+		y = 1
+		relative_position_id = TWO_invite_communist_ministers
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			division_template = { 
+				name = "Red Riflemen"
+				division_names_group = SOV_INF_01
+				is_locked = no
+				regiments = { 
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 3 y = 0 }
+
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 3 y = 1 }
+
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 2 }
+					infantry = { x = 3 y = 2 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					artillery = { x = 0 y = 2 }
+				}
+			}
+			random_owned_controlled_state = {
+					create_unit = { 
+						division = "name = \"1. Red Riflemen\" division_template = \"Red Riflemen\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+					create_unit = { 
+						division = "name = \"2. Red Riflemen\" division_template = \"Red Riflemen\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+					create_unit = { 
+						division = "name = \"3. Red Riflemen\" division_template = \"Red Riflemen\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+					create_unit = { 
+						division = "name = \"4. Red Riflemen\" division_template = \"Red Riflemen\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+					create_unit = { 
+						division = "name = \"5. Red Riflemen\" division_template = \"Red Riflemen\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+		}
+	}
+
+	focus = {
+		id = TWO_celebrate_the_commune
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 1
+		offset = {
+			x = 0
+			y = 0
+		}
+		prerequisite = { focus = TWO_red_army focus = TWO_soviet_equipment focus = TWO_soviet_military_staff }
+		mutually_exclusive = { }
+		relative_position_id = TWO_soviet_military_staff
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject = no
+		}
+		
+		bypass = {
+			has_government = communism
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.05}
+		}
+	}
+
+	focus = {
+		id = TWO_purge_of_our_own
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = TWO_celebrate_the_commune }
+		x = 0
+		y = 1
+		relative_position_id = TWO_celebrate_the_commune
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_timed_idea = {
+				idea = resistance_purged
+				days = 365
+			}
+			swap_ideas = {
+				add_idea = BALTIC_restore_workers_republic_idea_1
+				remove_idea = BALTIC_restore_workers_republic_idea
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_arm_reds_police
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = TWO_purge_of_our_own }
+		x = -2
+		y = 1
+		relative_position_id = TWO_purge_of_our_own
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+			add_ideas = BALTIC_international_brigades
+			swap_ideas = {
+				add_idea = BALTIC_restore_workers_republic_idea_2
+				remove_idea = BALTIC_restore_workers_republic_idea_1
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_womens_suffrage
+		icon = GFX_focus_generic_treaty
+		x = 2
+		y = 1
+		offset = {
+			x = 0
+			y = 0
+		}
+		prerequisite = { focus = TWO_purge_of_our_own }
+		mutually_exclusive = { }
+		relative_position_id = TWO_purge_of_our_own
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = { FRA_womens_suffrage }
+			add_popularity = { ideology = communism popularity = 0.05}
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = TWO_western_revolution
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = TWO_purge_of_our_own}
+		x = 0
+		y = 1
+		relative_position_id = TWO_purge_of_our_own
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = { BALTIC_carrying_the_western_revolution }
+		}
+	}
+
+	focus = {
+		id = TWO_rehabilitate_the_kadro_movement
+		icon = GFX_focus_generic_military_academy
+		mutually_exclusive = { focus = TWO_invite_communist_ministers focus = TWO_a_king_for_our_people focus = TWO_strengthen_civilian_government }
+		prerequisite = { focus = TWO_political_effort }
+		x = -3
+		y = 1
+		relative_position_id = TWO_political_effort
+		cost = 10
+		ai_will_do = {
+			base = 10
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_timed_idea = {
+				idea = TUR_political_landscape_shifting
+				days = 180
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_kemalism_and_the_modern_movement
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = TWO_rehabilitate_the_kadro_movement }
+		x = 0
+		y = 1
+		relative_position_id = TWO_rehabilitate_the_kadro_movement
+		cost = 5
+		ai_will_do = {
+			base = 10
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = { 
+				ideology = fascism
+				popularity = 0.07
+			}
+			custom_effect_tooltip = TUR_kemalism_and_the_modern_movement_tt
+			hidden_effect = { 
+				for_each_scope_loop = {
+					array = global.majors
+					if = {
+						limit = { 
+							is_major = yes
+							has_government = fascism
+							any_owned_state = { is_on_continent = europe }
+						}
+						add_opinion_modifier = {
+							target = TUR
+							modifier = TUR_likeminded_ultranationalists
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_integrate_the_fascist_council
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = TWO_kemalism_and_the_modern_movement }
+		x = 0
+		y = 1
+		relative_position_id = TWO_kemalism_and_the_modern_movement
+		cost = 5
+		ai_will_do = {
+			base = 10
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = TUR_the_redshirts
+		}
+	}
+
+	focus = {
+		id = TWO_patriotism_over_internationalism
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = TWO_kemalism_and_the_modern_movement }
+		x = -2
+		y = 1
+		relative_position_id = TWO_kemalism_and_the_modern_movement
+		cost = 5
+		ai_will_do = {
+			base = 10
+		}
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_war_support = 0.05
+			add_political_power = 120
+		}
+	}
+
+	focus = {
+		id = TWO_glory_of_war
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = TWO_kemalism_and_the_modern_movement }
+		x = 2
+		y = 1
+		relative_position_id = TWO_kemalism_and_the_modern_movement
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_government = fascism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_ideas = EST_veteran_training
+		}
+	}
+
+	focus = {
+		id = TWO_national_mobilization_law
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = TWO_glory_of_war focus = TWO_patriotism_over_internationalism focus = TWO_integrate_the_fascist_council}
+		x = 0
+		y = 1
+		relative_position_id = TWO_integrate_the_fascist_council
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			has_idea = tot_economic_mobilisation
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			if = {
+				limit = {	
+					has_war_support < 0.5
+				}
+				add_war_support = 0.1
+			}
+			else_if = {
+				limit = {
+					has_idea = war_economy
+				}
+				add_political_power = 150
+			}
+			else = {
+				add_ideas = war_economy
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_anti_communist_volunteers
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = TWO_national_mobilization_law }
+		x = -1
+		y = 1
+		relative_position_id = TWO_national_mobilization_law
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 3
+				any_country = {
+					has_government = democratic
+					has_war_with = SOV
+				}
+			}
+		}
+
+		available = {
+			NOT = { has_government = communism }
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_ideas = JAP_anti_communist_volunteers
+		}
+	}
+
+	focus = {
+		id = TWO_national_gold_reserves
+		available = {
+			has_war = no
+		}
+
+		bypass = {		
+		}
+		prerequisite = { focus = TWO_national_mobilization_law }	
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 1
+		y = 1
+
+		relative_position_id = TWO_national_mobilization_law
+		cost = 10
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = { 
+			add_ideas = POR_national_gold_reserves
+		}
+	}
+
+	focus = {
+		id = TWO_a_king_for_our_people
+		icon = GFX_focus_LIT_king_of_poland
+		prerequisite = { focus = TWO_political_effort }
+		mutually_exclusive = { focus = TWO_invite_communist_ministers focus = TWO_rehabilitate_the_kadro_movement focus = TWO_strengthen_civilian_government }
+		x = 3
+		y = 1
+		relative_position_id = TWO_political_effort
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+			
+		}
+
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = { LIT_karl_gero_idea }
+			add_popularity = { ideology = neutrality popularity = 0.20 }
+		}
+	}
+
+	focus = {
+		id = TWO_destroy_decadence
+		icon = GFX_focus_rom_parties_end
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = TWO_a_king_for_our_people
+		}
+		relative_position_id = TWO_a_king_for_our_people
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_timed_idea = { idea = FRA_anti_decandence days = 365 }
+			add_popularity = { ideology = neutrality popularity = 0.20 }
+		}
+	}
+
+	focus = {
+		id = TWO_institute_royal_guards
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = TWO_a_king_for_our_people }
+		x = -2
+		y = 1
+		relative_position_id = TWO_a_king_for_our_people
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+			has_capitulated = yes
+		}
+
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_popularity = { ideology = neutrality popularity = 0.10 }
+			add_ideas = { POL_royal_guard }
+			division_template = {
+				name = "Royal Guards Division"
+				priority = 2
+				division_names_group = POL_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+		
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+		
+					infantry = { x = 2 y = 0 }
+					artillery_brigade = { x = 2 y = 1 }
+					artillery_brigade = { x = 2 y = 2 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 784 } #Vilnius
+				create_unit = {
+					division = "name = \"Royal Guards Division\" division_template = \"Royal Guards Division\" start_experience_factor = 1.0" 
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Royal Guards Division\" division_template = \"Royal Guards Division\" start_experience_factor = 1.0" 
+					owner = ROOT
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Royal Guards Division\" division_template = \"Royal Guards Division\" start_experience_factor = 1.0" 
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Royal Guards Division\" division_template = \"Royal Guards Division\" start_experience_factor = 1.0" 
+					owner = ROOT
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_the_royal_council
+		icon = GFX_goal_generic_major_alliance
+		x = 0
+		y = 1
+		offset = {
+			x = 0
+			y = 0
+		}
+		prerequisite = {
+			focus = TWO_institute_royal_guards
+		}
+		relative_position_id = TWO_institute_royal_guards
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_political_unity
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 0
+		y = 1
+		offset = {
+			x = 0
+			y = 0
+		}
+		prerequisite = {
+			focus = TWO_the_royal_council
+		}
+		relative_position_id = TWO_the_royal_council
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = { ideology = neutrality popularity = party_popularity@fascism }
+			add_popularity = { ideology = fascism popularity = -1}
+		}
+	}
+
+	focus = {
+		id = TWO_martial_law
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = TWO_destroy_decadence }
+		x = 0
+		y = 2
+		relative_position_id = TWO_destroy_decadence
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = civilian_economy
+				}
+				swap_ideas = {
+					add_idea = partial_economic_mobilisation
+					remove_idea = civilian_economy
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = low_economic_mobilisation
+				}
+				swap_ideas = {
+					add_idea = partial_economic_mobilisation
+					remove_idea = low_economic_mobilisation
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_strengthen_civilian_government
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = TWO_political_effort }
+		mutually_exclusive = { focus = TWO_invite_communist_ministers focus = TWO_rehabilitate_the_kadro_movement focus = TWO_a_king_for_our_people }
+		x = 9
+		y = 1
+		relative_position_id = TWO_political_effort
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		allow_branch = {
+			has_dlc = "Waking the Tiger"
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_political_power = 120
+			add_timed_idea = { idea = JAP_strengthen_civilian_government days = 1095 }
+		}
+	}
+
+	focus = {
+		id = TWO_restore_public_elections
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = TWO_strengthen_civilian_government }
+		x = 0
+		y = 1
+		relative_position_id = TWO_strengthen_civilian_government
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			democratic > 0.3
+		}
+
+		bypass = {
+			has_government = democratic
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_volunteer_corps
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = TWO_strengthen_civilian_government }
+		x = 2
+		y = 1
+		relative_position_id = TWO_strengthen_civilian_government
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = volunteer_corps_focus
+		}
+	}
+
+	focus = {
+		id = TWO_deterrence
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = TWO_volunteer_corps }
+		x = 0
+		y = 1
+		relative_position_id = TWO_volunteer_corps
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = deterrence
+		}
+	}
+
+	focus = {
+		id = TWO_forced_conscription
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = TWO_deterrence }
+		x = 0
+		y = 1
+		relative_position_id = TWO_deterrence
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				has_manpower > 1000000
+				factor = 0
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_ideas = CHI_forced_conscription
+		}
+	}
+
+	focus = {
+		id = TWO_exploit_the_international_bank
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = TWO_restore_public_elections }
+		x = 0
+		y = 2
+		relative_position_id = TWO_restore_public_elections
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = { EST_exploit_the_banks_idea }
+		}
+	}
+
+	focus = {
+		id = TWO_the_nation_and_its_power
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = TWO_a_king_for_our_people focus = TWO_strengthen_civilian_government}
+		x = 3
+		y = 2
+		relative_position_id = TWO_a_king_for_our_people
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = { LIT_presidential_powers_1 }
+		}
+	}
+
+	focus = {
+		id = TWO_state_media
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = TWO_the_nation_and_its_power }
+		prerequisite = { focus = TWO_martial_law }
+		x = -1
+		y = 2
+		relative_position_id = TWO_the_nation_and_its_power
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_ideas = { LIT_state_media }
+		}
+	}
+
+	focus = {
+		id = TWO_presidential_reform
+		icon = GFX_goal_generic_neutrality_focus
+		dynamic = yes
+		prerequisite = { focus = TWO_the_nation_and_its_power }
+		prerequisite = { focus = TWO_exploit_the_international_bank }
+		x = 1
+		y = 2
+		relative_position_id = TWO_the_nation_and_its_power
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				category = land_doctrine
+				uses = 2
+				cost_reduction = 0.65
+			}
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = TWO_a_corporatist_economy
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = TWO_state_media focus = TWO_presidential_reform  }
+		x = 1
+		y = 1
+		relative_position_id = TWO_state_media
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = { EST_corporate_chambers_idea }
+		}
+	}
+
+	focus = {
+		id = TWO_aircraft
+		icon = GFX_goal_generic_air_fighter
+		dynamic = yes
+		prerequisite = { focus = TWO_soviet_equipment }
+		x = 0
+		y = 1
+		relative_position_id = TWO_soviet_equipment
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			air_experience = 40
+			random_other_country = {
+				limit = { 
+					is_major = yes
+					capital_scope = { is_on_continent = europe }
+					exists = yes
+					has_capitulated = no
+					has_government = communism
+					NOT = { has_war_with = ROOT }
+				}
+				give_aircraft_and_licences = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_tank_licences
+		icon = GFX_goal_generic_army_tanks
+		dynamic = yes
+		prerequisite = { focus = TWO_aircraft }
+		x = 0
+		y = 1
+		relative_position_id = TWO_aircraft
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_other_country = {
+				limit = { 
+					is_major = yes
+					capital_scope = { is_on_continent = europe }
+					exists = yes
+					has_capitulated = no
+					has_government = communism
+					NOT = { has_war_with = ROOT }
+				}
+				give_fascist_tank_licences = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TWO_forced_conscription_2
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = TWO_political_unity }
+		x = 0
+		y = 1
+		relative_position_id = TWO_political_unity
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				has_manpower > 1000000
+				factor = 0
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_ideas = CHI_forced_conscription
+		}
+	}
+
+}
